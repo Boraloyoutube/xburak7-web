@@ -306,5 +306,33 @@
 
     <!-- Javascript Dosyası -->
     <script src="script.js"></script>
+	
+	<!-- Retro Terminal Tetikleyici Butonu (Sol Alt Köşe) -->
+<button id="terminalToggleBtn" class="terminal-toggle-btn" title="Geliştirici Terminali">
+    <i class="fa-solid fa-terminal"></i>
+</button>
+
+<!-- Terminal Penceresi Overlay -->
+<div id="terminalModal" class="terminal-modal">
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="terminal-dots">
+                <span class="dot red" id="terminalCloseBtn"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <span class="terminal-title"><i class="fa-solid fa-code"></i> XBurak7 OS v1.0 [Geliştirici Modu]</span>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+            <p class="term-line term-sys">XBurak7 Terminal Başlatıldı...</p>
+            <p class="term-line term-sys">Erişilebilir komutları görmek için <span class="term-cmd">'help'</span> yazın.</p>
+            <p class="term-line term-warn">Geliştirici modunu açmak için: <span class="term-cmd">login &lt;şifreniz&gt;</span></p>
+        </div>
+        <div class="terminal-input-row">
+            <span class="term-prompt" id="termPrompt">guest@xburak7:~$</span>
+            <input type="text" id="terminalInput" autocomplete="off" spellcheck="false" autofocus>
+        </div>
+    </div>
+</div>
 </body>
 </html>
