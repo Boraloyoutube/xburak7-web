@@ -149,3 +149,154 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
+
+// --- 7. RETRO GİZLİ TERMINAL KODU ---
+document.addEventListener('DOMContentLoaded', () => {
+    const terminalModal = document.getElementById('terminalModal');
+    const terminalToggleBtn = document.getElementById('terminalToggleBtn');
+    const terminalCloseBtn = document.getElementById('terminalCloseBtn');
+    const terminalInput = document.getElementById('terminalInput');
+    const terminalBody = document.getElementById('terminalBody');
+    const termPrompt = document.getElementById('termPrompt');
+
+    // Gizli Şifren (Bunu dilediğin gibi değiştirebilirsin!)
+    const SECRET_PASSWORD = "burak";
+    let isAdminLoggedIn = false;
+
+    // Terminal Aç/Kapat
+    const openTerminal = () => {
+        terminalModal.classList.add('open');
+        terminalInput.focus();
+    };
+
+    const closeTerminal = () => {
+        terminalModal.classList.remove('open');
+    };
+
+    terminalToggleBtn.addEventListener('click', openTerminal);
+    terminalCloseBtn.addEventListener('click', closeTerminal);
+
+    // Dışarıya veya ESC tuşuna basılınca kapatma
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && terminalModal.classList.contains('open')) {
+            closeTerminal();
+        }
+    });
+
+    // Satır Ekleme Yardımcısı
+    const printLine = (text, type = '') => {
+        const p = document.createElement('p');
+        p.className = `term-line ${type}`;
+        p.innerHTML = text;
+        terminalBody.appendChild(p);
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+    };
+
+    // Komut Çalıştırma Mantığı
+    terminalInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const rawInput = terminalInput.value.trim();
+            const inputLower = rawInput.toLowerCase();
+            const args = rawInput.split(' ');
+            const command = args[0].toLowerCase();
+            const param = args[1];
+
+            if (rawInput === '') return;
+
+            // Yazılan komutu ekrana bastır
+            const currentPrompt = isAdminLoggedIn ? 'admin@xburak7:~$ ' : 'guest@xburak7:~$ ';
+            printLine(currentPrompt + rawInput, 'term-cmd');
+            terminalInput.value = '';
+
+            // KOMUT KONTROLLERİ
+            switch (command) {
+                case 'help':
+                    printLine("--- ERİŞİLEBİLİR KOMUTLAR ---", "term-sys");
+                    printLine("<span class='term-secret'>help</span> - Komut listesini gösterir.");
+                    printLine("<span class='term-secret'>videos</span> - Videolar bölümüne kaydırır.");
+                    printLine("<span class='term-secret'>setup</span> - Ekipmanlar bölümüne kaydırır.");
+                    printLine("<span class='term-secret'>clear</span> - Ekranı temizler.");
+                    printLine("<span class='term-secret'>exit</span> - Terminali kapatır.");
+                    
+                    if (!isAdminLoggedIn) {
+                        printLine("<span class='term-warn'>login &lt;şifre&gt;</span> - Geliştirici moduna giriş yapar.", "term-warn");
+                    } else {
+                        printLine("<span class='term-secret'>secret</span> - Özel geliştirici notları ve gizli bilgiler.", "term-secret");
+                        printLine("<span class='term-secret'>stats</span> - Kanal detaylı analitiği.", "term-secret");
+                        printLine("<span class='term-secret'>logout</span> - Admin oturumunu kapatır.");
+                    }
+                    break;
+
+                case 'login':
+                    if (isAdminLoggedIn) {
+                        printLine("Zaten Admin modundasınız!", "term-warn");
+                    } else if (param === SECRET_PASSWORD) {
+                        isAdminLoggedIn = true;
+                        termPrompt.innerText = "admin@xburak7:~$";
+                        termPrompt.style.color = "#ff2a5f";
+                        printLine(" [Erişim Onaylandı] Hoş geldin Burak! Admin modu aktif.", "term-secret");
+                        printLine("Yeni açılan komutlar için 'help' yazabilirsin.", "term-sys");
+                    } else {
+                        printLine(" [Erişim Engellendi] Yanlış şifre!", "term-err");
+                    }
+                    break;
+
+                case 'logout':
+                    if (isAdminLoggedIn) {
+                        isAdminLoggedIn = false;
+                        termPrompt.innerText = "guest@xburak7:~$";
+                        termPrompt.style.color = "#00ff66";
+                        printLine("Admin oturumu kapatıldı.", "term-sys");
+                    } else {
+                        printLine("Zaten misafir modundasınız.", "term-warn");
+                    }
+                    break;
+
+                case 'secret':
+                    if (isAdminLoggedIn) {
+                        printLine("--- GİZLİ GELİŞTİRİCİ NOTLARI ---", "term-secret");
+                        printLine("• BurakOS projesi v2.0 altyapısı hazırlanıyor.");
+                        printLine("• YouTube Video Factory Python betikleri sorunsuz çalışıyor.");
+                        printLine("• Gizli Proje Linki: github.com/Boraloyoutube/secret-vault");
+                    } else {
+                        printLine("Bu komut için 'login' yapmalısınız!", "term-err");
+                    }
+                    break;
+
+                case 'stats':
+                    if (isAdminLoggedIn) {
+                        printLine("--- KANAL ANALİTİK DETAYLARI ---", "term-secret");
+                        printLine("• Abone Hedefi: %44 Tamamlandı");
+                        printLine("• Aylık Toplam İzlenme: ~2.5M+");
+                        printLine("• En Çok İzlenen İçerik Türü: Shorts");
+                    } else {
+                        printLine("Bu komut için 'login' yapmalısınız!", "term-err");
+                    }
+                    break;
+
+                case 'videos':
+                    closeTerminal();
+                    document.getElementById('videos').scrollIntoView();
+                    break;
+
+                case 'setup':
+                    closeTerminal();
+                    document.getElementById('setup').scrollIntoView();
+                    break;
+
+                case 'clear':
+                    terminalBody.innerHTML = '';
+                    break;
+
+                case 'exit':
+                case 'quit':
+                    closeTerminal();
+                    break;
+
+                default:
+                    printLine(`Bilinmeyen komut: '${command}'. Komutlar için 'help' yazın.`, "term-err");
+                    break;
+            }
+        }
+    });
+});
