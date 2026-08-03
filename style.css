@@ -680,3 +680,139 @@ footer {
         justify-content: center;
     }
 }
+
+/* --- RETRO TERMINAL STİLLERİ --- */
+.terminal-toggle-btn {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #00ff66;
+    color: #0b0c10;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+    z-index: 1500;
+    transition: var(--transition);
+}
+
+.terminal-toggle-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 25px rgba(0, 255, 102, 0.8);
+}
+
+/* Terminal Modal Overlay */
+.terminal-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2500;
+    padding: 1rem;
+}
+
+.terminal-modal.open {
+    display: flex;
+}
+
+/* Terminal Pencere Gövdesi */
+.terminal-window {
+    width: 100%;
+    max-width: 750px;
+    height: 480px;
+    background: #07080a;
+    border: 1px solid rgba(0, 255, 102, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 255, 102, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Terminal Header */
+.terminal-header {
+    background: #111319;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+/* Terminal İçerik Alanı */
+.terminal-body {
+    flex: 1;
+    padding: 1.2rem;
+    overflow-y: auto;
+    color: #00ff66;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.term-line {
+    margin-bottom: 0.4rem;
+    word-break: break-all;
+}
+
+.term-sys { color: #8899a6; }
+.term-warn { color: #ffaa00; }
+.term-err { color: #ff2a5f; }
+.term-cmd { color: #ffffff; font-weight: bold; }
+.term-secret { color: #00ffff; font-weight: bold; }
+
+/* Input Satırı */
+.terminal-input-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.2rem;
+    background: #0d0f14;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.term-prompt {
+    color: #00ff66;
+    font-weight: bold;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+#terminalInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+}
