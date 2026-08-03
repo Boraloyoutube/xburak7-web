@@ -4,114 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XBurak7 | Resmi Web Sitesi</title>
+    <!-- Stil Dosyası -->
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome İkonları -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Navigasyon -->
-    <nav class="navbar">
+    <!-- Navigasyon Barı -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">XBURAK<span>7</span></a>
             
             <ul class="nav-links" id="navLinks">
-                <li><a href="#hero">Ana Sayfa</a></li>
+                <li><a href="#hero" class="active">Ana Sayfa</a></li>
                 <li><a href="#about">Hakkımda</a></li>
-                <li><a href="#videos">Son Videolar</a></li>
-                <li><a href="#socials">İletişim & Sosyal</a></li>
+                <li><a href="#videos">Videolar</a></li>
+                <li><a href="#setup">Ekipmanlar</a></li>
+                <li><a href="#faq">SSS</a></li>
+                <li><a href="#socials">Sosyal Medya</a></li>
             </ul>
 
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" aria-label="Menü">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
     </nav>
 
-    <!-- Hero (Karşılama) Alanı -->
+    <!-- Hero / Karşılama Alanı -->
     <header id="hero" class="hero-section">
         <div class="hero-content">
-            <div class="badge">YouTube İçerik Üreticisi</div>
-            <h1>En Yeni ve İlginç İçerikleri <span>Keşfet!</span></h1>
-            <p>Bilgi, eğlence ve teknoloji dolu videolar için doğru adrestesin. Kanalıma göz atmak ve topluluğumuza katılmak için hemen tıkla.</p>
+            <div class="badge">
+                <span class="pulse-dot"></span> YouTube İçerik Üreticisi
+            </div>
+            <h1>Teknoloji, Oyun ve <span>Bilgi Dünyası</span></h1>
+            <p>En yeni videolar, sıra dışı gerçekler ve eğlenceli içeriklerle dolu kanalıma hoş geldin. Topluluğumuza katılmak için aşağıdaki bağlantıları takip edebilirsin!</p>
             
             <div class="hero-btns">
                 <a href="https://www.youtube.com/@XBurak7?sub_confirmation=1" target="_blank" class="btn btn-primary">
                     <i class="fa-brands fa-youtube"></i> Abone Ol
                 </a>
+                <a href="https://discord.com/invite/antcw3hRZN" target="_blank" class="btn btn-discord">
+                    <i class="fa-brands fa-discord"></i> Discord Sunucusu
+                </a>
                 <a href="#videos" class="btn btn-secondary">
                     <i class="fa-solid fa-play"></i> Videoları İncele
                 </a>
             </div>
+
+            <!-- İstatistik Sayacı -->
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3 class="counter" data-target="10000">0</h3>
+                    <p>Takipçi / Abone</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="150">0</h3>
+                    <p>Yayınlanan Video</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="500000">0</h3>
+                    <p>Toplam İzlenme</p>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Hakkımda / Kanal İstatistikleri -->
+    <!-- Kanal Hakkında -->
     <section id="about" class="about-section">
         <div class="container">
             <div class="section-title">
                 <h2>Kanal Hakkında</h2>
-                <p>Neler Yapıyoruz?</p>
+                <p>İçerik Stratejimiz ve Misyonumuz</p>
             </div>
             
             <div class="cards-grid">
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
                     <h3>İlgi Çekici Bilgiler</h3>
-                    <p>Merak uyandıran konuları, sıra dışı detayları ve eğlenceli gerçekleri videolarımızda derliyoruz.</p>
+                    <p>Merak uyandıran konuları, bilimsel ve ilginç gerçekleri en anlaşılır şekilde derleyip paylaşıyoruz.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <h3>Oyun & Performans</h3>
+                    <p>En yeni oyunlar, incelemeler ve sistem performans rehberleriyle kesintisiz aksiyon sunuyoruz.</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <h3>Dinamik İçerikler</h3>
-                    <p>Hem sürükleyici uzun videolar hem de tempolu Shorts içerikleriyle sürekli güncel kalıyoruz.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-users"></i></div>
-                    <h3>Büyüyen Topluluk</h3>
-                    <p>Takipçilerimizle sürekli etkileşim halinde kalıyor, yorumları ve fikirleri dikkate alıyoruz.</p>
+                    <h3>Tempolu Shorts</h3>
+                    <p>Zamanı olmayanlar için dakikalar içinde bilgi veren dinamik ve kısa videolar hazırlıyoruz.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Videolar Bölümü -->
+    <!-- Videolar & Kategori Filtreleme -->
     <section id="videos" class="videos-section">
         <div class="container">
             <div class="section-title">
                 <h2>Öne Çıkan İçerikler</h2>
-                <p>YouTube Kanalımdan En Son Yayınlar</p>
+                <p>Kategorilere Göre İçerikleri Filtrele</p>
             </div>
 
-            <div class="video-grid">
-                <!-- Video 1 -->
-                <div class="video-card">
+            <!-- Filtre Tabları -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">Tüm İçerikler</button>
+                <button class="filter-btn" data-filter="videos">Uzun Videolar</button>
+                <button class="filter-btn" data-filter="shorts">Shorts</button>
+            </div>
+
+            <div class="video-grid" id="videoGrid">
+                <!-- Video Item 1 -->
+                <div class="video-card" data-category="videos">
                     <div class="video-thumb">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Video Görseli">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="En Yeni Video">
+                        <span class="video-duration">10:45</span>
                         <a href="https://www.youtube.com/@XBurak7/videos" target="_blank" class="play-btn">
                             <i class="fa-solid fa-play"></i>
                         </a>
                     </div>
                     <div class="video-info">
-                        <h3>En Yeni Video Başlığı</h3>
-                        <p>Kanalımızdaki en güncel ve popüler içeriklere ulaşmak için tıklayın.</p>
+                        <span class="tag">Uzun Video</span>
+                        <h3>Kanalın En Yeni ve Popüler İçeriği</h3>
+                        <p>Kanalımızda yayınlanan son detaylı inceleme ve anlatım videosu.</p>
                     </div>
                 </div>
 
-                <!-- Video 2 -->
-                <div class="video-card">
+                <!-- Video Item 2 -->
+                <div class="video-card" data-category="shorts">
                     <div class="video-thumb">
-                        <img src="https://images.unsplash.com/photo-1611162616071-c3a2ed56934c?auto=format&fit=crop&w=600&q=80" alt="Video Görseli">
+                        <img src="https://images.unsplash.com/photo-1611162616071-c3a2ed56934c?auto=format&fit=crop&w=600&q=80" alt="Shorts İçeriği">
+                        <span class="video-duration">0:59</span>
                         <a href="https://www.youtube.com/@XBurak7/shorts" target="_blank" class="play-btn">
                             <i class="fa-solid fa-play"></i>
                         </a>
                     </div>
                     <div class="video-info">
-                        <h3>Shorts & Kısa İçerikler</h3>
-                        <p>Hızlıca izleyebileceğiniz eğlenceli ve bilgi dolu kısa videolar.</p>
+                        <span class="tag tag-shorts">Shorts</span>
+                        <h3>Hızlı Bilgi: 60 Saniyede Öğren!</h3>
+                        <p>Kısa ve öz bilgi içeren en popüler YouTube Shorts paylaşımı.</p>
+                    </div>
+                </div>
+
+                <!-- Video Item 3 -->
+                <div class="video-card" data-category="videos">
+                    <div class="video-thumb">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Oyun Serisi">
+                        <span class="video-duration">18:20</span>
+                        <a href="https://www.youtube.com/@XBurak7/videos" target="_blank" class="play-btn">
+                            <i class="fa-solid fa-play"></i>
+                        </a>
+                    </div>
+                    <div class="video-info">
+                        <span class="tag">Oyun</span>
+                        <h3>Call of Duty & Sistem Rehberi</h3>
+                        <p>Yüksek performans ve en iyi grafik ayarları rehberi.</p>
                     </div>
                 </div>
             </div>
@@ -124,34 +175,136 @@
         </div>
     </section>
 
+    <!-- Sistem & Ekipmanlar -->
+    <section id="setup" class="setup-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kullandığım Ekipmanlar</h2>
+                <p>İçerik Üretirken Tercih Ettiğim Sistem ve Araçlar</p>
+            </div>
+
+            <div class="setup-grid">
+                <div class="setup-item">
+                    <i class="fa-solid fa-desktop setup-icon"></i>
+                    <div>
+                        <h4>Yayın & Gaming PC</h4>
+                        <p>Güçlü İşlemci & Ekran Kartı Konfigürasyonu</p>
+                    </div>
+                </div>
+                <div class="setup-item">
+                    <i class="fa-solid fa-display setup-icon"></i>
+                    <div>
+                        <h4>Monitör Kurulumu</h4>
+                        <p>144Hz / 1ms Yüksek Yenileme Hızlı Oyuncu Monitörü</p>
+                    </div>
+                </div>
+                <div class="setup-item">
+                    <i class="fa-solid fa-microphone setup-icon"></i>
+                    <div>
+                        <h4>Ses & Mikrofon</h4>
+                        <p>Kristal Netliğinde Yayıncı Stüdyo Mikrofonu</p>
+                    </div>
+                </div>
+                <div class="setup-item">
+                    <i class="fa-solid fa-code setup-icon"></i>
+                    <div>
+                        <h4>Yazılım & Edit</h4>
+                        <p>HTML5, CSS3, JS & AI Destekli Edit Araçları</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sıkça Sorulan Sorular (SSS) -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sıkça Sorulan Sorular</h2>
+                <p>Merak Edilenler ve Yanıtları</p>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Yeni videolar hangi günler yayınlanıyor?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Kanalımızda haftalık düzenli olarak yeni videolar ve her gün güncel Shorts içerikleri paylaşılmaktadır.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Discord sunucusuna nasıl katılabilirim?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sitemizdeki "Discord Sunucusu" butonlarına tıklayarak topluluğumuza doğrudan katılabilirsin!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Sponsorluk ve iş birliği için nereden ulaşabilirim?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>İş birliği teklifleri için Discord sunucumuz üzerinden veya sosyal medya hesaplarımızdan iletişime geçebilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Sosyal Medya & İletişim -->
     <section id="socials" class="socials-section">
         <div class="container">
             <h2>Sosyal Medyada Katıl</h2>
-            <p>Beni diğer platformlardan da takip etmeyi unutma!</p>
+            <p>Tüm Platformlarda Beni Takip Etmeyi Unutma!</p>
             
             <div class="social-links">
-                <a href="https://www.youtube.com/@XBurak7" target="_blank" class="social-icon youtube">
+                <a href="https://www.youtube.com/@XBurak7" target="_blank" class="social-icon youtube" title="YouTube">
                     <i class="fa-brands fa-youtube"></i>
                 </a>
-                <a href="https://discord.com/invite/antcw3hRZN" target="_blank" class="social-icon discord">
+                <a href="https://discord.com/invite/antcw3hRZN" target="_blank" class="social-icon discord" title="Discord">
                     <i class="fa-brands fa-discord"></i>
                 </a>
-				<a href="https://www.tiktok.com/@youtube.burak.ozata" target="_blank" class="social-icon tiktok">
+                <a href="https://www.tiktok.com/@youtube.burak.ozata" target="_blank" class="social-icon tiktok" title="TikTok">
                     <i class="fa-brands fa-tiktok"></i>
                 </a>
-                <a href="#" target="_blank" class="social-icon github">
+                <a href="https://github.com/Boraloyoutube" target="_blank" class="social-icon github" title="GitHub">
                     <i class="fa-brands fa-github"></i>
                 </a>
+            </div>
+
+            <!-- Discord Hızlı Katılım Bannerı -->
+            <div class="discord-banner">
+                <div class="discord-info">
+                    <i class="fa-brands fa-discord banner-icon"></i>
+                    <div>
+                        <h3>XBurak7 Discord Topluluğu</h3>
+                        <p>Sohbet etmek, oyun oynamak ve duyurulardan anında haberdar olmak için hemen gel!</p>
+                    </div>
+                </div>
+                <a href="https://discord.com/invite/antcw3hRZN" target="_blank" class="btn btn-discord">Katıl</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 XBurak7. Tüm Hakları Saklıdır.</p>
+        <div class="footer-content">
+            <p>&copy; 2026 <strong>XBurak7</strong>. Tüm Hakları Saklıdır.</p>
+            <p class="footer-sub">Tasarlayan & Geliştiren: Burak</p>
+        </div>
     </footer>
 
+    <!-- Bildirim Kutusı (Toast Notification) -->
+    <div id="toast" class="toast">Bağlantı başarıyla kopyalandı!</div>
+
+    <!-- Javascript Dosyası -->
     <script src="script.js"></script>
 </body>
 </html>
